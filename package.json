@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Hostel Management System — React + Express + SQLite, zero setup",
+  "engines": { "node": "22.x" },
   "scripts": {
     "install:all": "npm --prefix server install && npm --prefix client install",
     "seed": "npm --prefix server run seed",

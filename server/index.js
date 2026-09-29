@@ -57,4 +57,10 @@ app.use((err, req, res, next) => {
   res.status(500).json({ success: false, message: 'Server error' });
 });
 
-app.listen(PORT, () => console.log(`Hostel API running on http://localhost:${PORT}`));
+module.exports = app;
+
+// Run standalone locally (`node index.js`); on Vercel the exported app is
+// used as the serverless handler (see /api/index.js) — do NOT listen there.
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`Hostel API running on http://localhost:${PORT}`));
+}
