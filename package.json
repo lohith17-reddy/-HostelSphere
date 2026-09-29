@@ -1,0 +1,13 @@
+{
+  "name": "hostel-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hostel Management System — React + Express + SQLite, zero setup",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "seed": "npm --prefix server run seed",
+    "dev": "npm --prefix server run dev",
+    "dev:all": "npm --prefix server run dev-all",
+    "start": "npm --prefix server start"
+  }
+}

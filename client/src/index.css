@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --gold: #f5b942; }
+html, body, #root { height: 100%; }
+body { font-family: Inter, system-ui, sans-serif; }
+
+/* Full-screen hostel building background with local fallback gradient.
+   Layer order: readable navy overlay FIRST, then photo, then gradient fallback
+   (if the photo URL is blocked/offline, the gradient still shows). */
+.app-bg {
+  background-color: #0f1e3a;
+  background-image:
+    linear-gradient(rgba(8,15,35,.55), rgba(8,15,35,.65)),
+    url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=2000&q=70'),
+    linear-gradient(135deg, #0f1e3a, #1e3a5f 60%, #3a2b12);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+/* Login page: lighter overlay so the building photo stays clearly visible */
+.login-bg {
+  background-color: #0f1e3a;
+  background-image:
+    linear-gradient(rgba(8,15,35,.42), rgba(8,15,35,.55)),
+    url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=2000&q=70'),
+    linear-gradient(135deg, #0f1e3a, #1e3a5f 60%, #3a2b12);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+.glass {
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.5);
+  box-shadow: 0 8px 32px rgba(0,0,0,.18);
+}
+.dark .glass {
+  background: rgba(17,25,45,.78);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 8px 32px rgba(0,0,0,.45);
+}
+.card-hover { transition: transform .18s ease, box-shadow .18s ease; }
+.card-hover:hover { transform: translateY(-2px); }
+.fade-in { animation: fadeIn .35s ease both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: none;} }
+.skeleton { animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: .5;} 50% { opacity: 1;} }
